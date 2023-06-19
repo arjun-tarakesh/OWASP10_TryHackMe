@@ -1,1 +1,33 @@
+https://medium.com/@fathindos.fd/tryhackme-owasp-top-10-walkthrough-c12d89bed42b
+An Example:
+In pseudocode, the above snippet is doing the following:
+
+1. Checking if the parameter "commandString" is set
+
+2. If it is, then the variable $command_string gets what was passed into the input field
+
+3. The program then goes into a try block to execute the function passthru($command_string).  You can read the docs on passthru() on PHP's website, but in general, it is executing what gets entered into the input then passing the output directly back to the browser.
+
+4. If the try does not succeed, output the error to page.  Generally this won't output anything because you can't output stderr but PHP doesn't let you have a try without a catch.
+
+Practical Commands:
+Input commands
+  Start with ls
+
+Try to find what is inside.
+
+How many non-root/non-service/non-daemon users are there?
+cat /etc/passwd
+
+To find uname:
+whoami
+
+What is the user’s shell set as:
+ grep "^$USER" /etc/passwd
+
+What version of Ubuntu is running?
+lsb_release -a
+
+MOD:
+cat -x /etc/update-motd.d/*
 
